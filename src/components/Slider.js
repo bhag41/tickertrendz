@@ -1,3 +1,4 @@
+// Write your Slider component here
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -10,13 +11,14 @@ const Slider = () => {
             try{
                 const options = {
                     method : 'GET',
-                    url : 'https://yfapi.net/v6/finance/quote/marketsummary',
+                    url : 'https://yfapi.net/v6/finance/quote/marketSummary?lang=en&region=US',
                     headers: {
                         'x-api-key': apiKey
                     }
                 };
                 const response = await axios.request(options);
-                setData(response.data.marketSummaryResponse.result());
+                //console.log(response.data.marketSummaryResponse.result);
+                setData(response.data.marketSummaryResponse.result);
             }
             catch(error){
                 console.error(error);
